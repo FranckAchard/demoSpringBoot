@@ -3,11 +3,11 @@ package co.simplon.crud.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +19,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
 
 import co.simplon.crud.model.Foo;
+import co.simplon.crud.service.FooService;
 
 @Controller
 @RequestMapping("/foos")
 class FooController {
+	
+	@Inject
+	FooService fooService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
