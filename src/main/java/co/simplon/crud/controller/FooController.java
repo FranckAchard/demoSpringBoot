@@ -32,11 +32,11 @@ class FooController {
 	@ResponseBody
 	public List<Foo> findAll() {
 		List<Foo> foos = new ArrayList<Foo>();
-		Foo foo1 = new Foo( " Test 1 ");
-		Foo foo2 = new Foo ("Test 2");
+		//Foo foo1 = new Foo( " Test 1 ");
+		//Foo foo2 = new Foo ("Test 2");
 
-		foos.add(foo1);
-		foos.add(foo2);
+		//foos.add(foo1);
+		//foos.add(foo2);
 
 		return foos;
 	}
@@ -57,8 +57,8 @@ class FooController {
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-	public Foo create(@RequestBody Foo resource) {
-		return resource;
+	public Long create(@RequestBody Foo resource) {
+		return fooService.saveFoo(resource).getId();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -78,4 +78,5 @@ class FooController {
 	public String testRequestParam(@RequestParam("id") int id){
 		return "testRequestParam with id= "+id;
 	}
+	
 }

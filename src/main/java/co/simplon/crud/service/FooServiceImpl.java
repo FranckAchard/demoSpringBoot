@@ -21,11 +21,21 @@ public class FooServiceImpl implements FooService {
     }
 
     public List<Foo> getAll() {
-	  return null; // TODO
+	  return fooRepository.findAll();
     }
     
     public Optional<Foo> findbyId(Long id) {	
 	  return fooRepository.findById(id);
     }
+
+	public List<Foo> findbyName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Foo> findByNameLike(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
